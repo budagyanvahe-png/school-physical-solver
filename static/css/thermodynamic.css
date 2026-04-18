@@ -1,0 +1,17 @@
+.thermodynamic {
+    border: 8px solid orange;
+    text-align: left;
+}
+
+.thermodynamic p {
+    font-family: Arial;
+}
+
+.thermodynamic ul li {
+    font-family: Arial;
+}
+
+.thermodynamic button {
+    background-color: greenyellow;
+    border: 8px outset black;
+}

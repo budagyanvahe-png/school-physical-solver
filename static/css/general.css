@@ -1,0 +1,28 @@
+.topic-header {
+    border: 8px solid black;
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.formula-header {
+    text-align: center;
+    font-size: 32px;
+}
+
+.formula-input {
+    text-align: left;
+}
+
+.result-output {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.calculate-button {
+    background-color: greenyellow;
+    border: 8px outset black;
+}
+
+.result-unit {
+    font-family: Arial, Helvetica, sans-serif;
+}

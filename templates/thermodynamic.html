@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Термодинамика</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/thermodynamic.css') }}">
+    </head>
+    <body>
+        <div class="topic-header">
+            <p>
+                Термодинамика
+            </p>
+        </div>
+        <div class="thermodynamic">
+            <p class="formula-header"><strong>Расчет количества теплоты</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="sensible-heat-specific-heat" type="number">
+                    <span>Удельная теплоемкость, Дж*кг/С°</span>
+                </li>
+                <li>
+                    <input id="sensible-heat-mass" type="number">
+                    <span>Масса, кг</span>
+                </li>
+                <li>
+                    <input id="sensible-heat-delta-temperature" type="number">
+                    <span>Изменение температуры, С°</span>
+                </li>
+                <li>
+                    <input id="sensible-heat-start-temperature" type="number">
+                    <span>Начальная температура, С°</span>
+                </li>
+                <li>
+                    <input id="sensible-heat-end-temperature" type="number">
+                    <span>Конечная температура, С°</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-sensible-heat-button">Рассчитать</button>
+            <output class="result-output" id="sensible-heat-result">Ответ: </output>
+            <span class="result-unit">Дж</span>
+        </div>
+        <div class="thermodynamic">
+            <p class="formula-header"><strong>Расчет удельной теплоемкости</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="specific-heat-sensible-heat" type="number">
+                    <span>Количество теплоты, Дж</span>
+                </li>
+                <li>
+                    <input id="specific-heat-mass" type="number">
+                    <span>Масса, кг</span>
+                </li>
+                <li>
+                    <input id="specific-heat-delta-temperature" type="number">
+                    <span>Изменение температуры, С°</span>
+                </li>
+                <li>
+                    <input id="specific-heat-start-temperature" type="number">
+                    <span>Начальная температура, С°</span>
+                </li>
+                <li>
+                    <input id="specific-heat-end-temperature" type="number">
+                    <span>Конечная температура, С°</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-specific-heat-button">Рассчитать</button>
+            <output class="result-output" id="specific-heat-result">Ответ: </output>
+            <span class="result-unit">Дж*кг/С°</span>
+        </div>
+        <div class="thermodynamic">
+            <p class="formula-header"><strong>Расчет изменения температуры</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="delta-temperature-sensible-heat" type="number">
+                    <span>Количество теплоты, Дж</span>
+                </li>
+                <li>
+                    <input id="delta-temperature-specific-heat" type="number">
+                    <span>Удельная теплоемкость, Дж*кг/С°</span>
+                </li>
+                <li>
+                    <input id="delta-temperature-mass" type="number">
+                    <span>Масса, кг</span>
+                </li>
+                <li>
+                    <input id="delta-temperature-start-temperature" type="number">
+                    <span>Начальная температура, С°</span>
+                </li>
+                <li>
+                    <input id="delta-temperature-end-temperature" type="number">
+                    <span>Конечная температура, С°</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-delta-temperature-button">Рассчитать</button>
+            <output class="result-output" id="delta-temperature-result">Ответ: </output>
+            <span class="result-unit">С°</span>
+        </div>
+        <div class="thermodynamic">
+            <p class="formula-header"><strong>Расчет удельной теплоты плавления</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="specific-fusion-heat-fusion-heat" type="number">
+                    <span>Количество теплоты, С°</span>
+                </li>
+                <li>
+                    <input id="specific-fusion-heat-mass" type="number">
+                    <span>Масса, кг</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-specific-fusion-heat-button">Рассчитать</button>
+            <output class="result-output" id="specific-fusion-heat-result">Ответ: </output>
+            <span class="result-unit">Дж/кг</span>
+        </div>
+        <div class="thermodynamic">
+            <p class="formula-header"><strong>Расчет количества теплоты плавления</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="fusion-heat-specific-fusion-heat" type="number">
+                    <span>Количество теплоты, С°</span>
+                </li>
+                <li>
+                    <input id="fusion-heat-mass" type="number">
+                    <span>Масса, кг</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-fusion-heat-button">Рассчитать</button>
+            <output class="result-output" id="fusion-heat-result">Ответ: </output>
+            <span class="result-unit">Дж</span>
+        </div>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Thermodynamic/CalculateSensibleHeatButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Thermodynamic/CalculateSpecificHeatButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Thermodynamic/CalculateDeltaTemperatureButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Thermodynamic/CalculateSpecificFusionHeatButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Thermodynamic/CalculateFusionHeatButton.js') }}"></script>
+    </body>
+</html>

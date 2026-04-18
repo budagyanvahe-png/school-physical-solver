@@ -1,0 +1,17 @@
+.mechanic {
+    border: 8px solid gray;
+    text-align: left;
+}
+
+.mechanic p {
+    font-family: Arial;
+}
+
+.mechanic ul li {
+    font-family: Arial;
+}
+
+.mechanic button {
+    background-color: greenyellow;
+    border: 8px outset black;
+}

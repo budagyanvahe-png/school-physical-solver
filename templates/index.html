@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Формулы по физике</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    </head>
+    <body>
+        <div class="main-div">
+            <p>
+                Привет, ученик! У тебя нет калькулятора, но нужно быстро посчитать ту самую массу из задачи по физике со звездочкой? Тогда тебе в этот физический калькулятор. С ним можно за 1 секунду посчитать нужную величину и увеличить свою продуктивность. А если нужна теория - ссылка на ЯКласс внизу!
+            </p>
+            <a href="https://www.yaklass.ru" target="_blank" rel="noopener noreferrer">ЯКласс - теория по физике</a>
+        </div>
+        <div class="main-div">
+            <p>
+                Выбери раздел физики, который тебе нужен: Электричество, Механика, Термодинамика.
+            </p>
+            <button class="physics-directiion" id="electricity-button">Электричество</button>
+            <button class="physics-directiion" id="mechanic-button">Механика</button>
+            <button class="physics-directiion" id="thermodynamic-button">Термодинамика</button>
+        </div>
+        <script src="static/js/ElectricityButton.js"></script>
+        <script src="static/js/MechanicButton.js"></script>
+        <script src="static/js/ThermodynamicButton.js"></script>
+    </body>
+</html>

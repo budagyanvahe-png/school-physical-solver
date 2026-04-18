@@ -1,0 +1,17 @@
+.electricity {
+    border: 8px solid blue;
+    text-align: left;
+}
+
+.electricity p {
+    font-family: Arial;
+}
+
+.electricity ul li {
+    font-family: Arial;
+}
+
+.electricity button {
+    background-color: greenyellow;
+    border: 8px outset black;
+}

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Механика</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/mechanic.css') }}">
+    </head>
+    <body>
+        <div class="topic-header">
+            <p>
+                Механика
+            </p>
+        </div>
+        <div class="topic-header">
+            <p>
+                Динамика
+            </p>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет силы трения</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="friction-force-sliding-friction" type="number">
+                    <span>Коэффициент трения скольжения</span>
+                </li>
+                <li>
+                    <input id="friction-force-support-reaction" type="number">
+                    <span>Сила реакции опоры, Н</span>
+                </li>
+                <li>
+                    <input id="friction-force-mass" type="number">
+                    <span>Масса, кг</span>
+                </li>
+                <li>
+                    <input id="friction-force-acceleration" type="number">
+                    <span>Ускорение, м/с^2</span>
+                </li>
+                <li>
+                    <input id="friction-force-angle" type="number">
+                    <span>Угол наклона, °</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-friction-force-button">Рассчитать</button>
+            <output class="result-output" id="friction-force-result">Ответ: </output>
+            <span class="result-unit">Н</span>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет механической работы</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="mechanical-work-total-force" type="number">
+                    <span>Сила, Н</span>
+                </li>
+                <li>
+                    <input id="mechanical-work-elapsed-distance" type="number">
+                    <span>Начальная скорость, м/с</span>
+                </li>
+                <li>
+                    <input id="mechanical-work-angle" type="number">
+                    <span>Угол наклона, градусы</span>
+                </li>
+                <li>
+                    <input id="mechanical-work-start-kinetic-energy" type="number">
+                    <span>Начальная кинетическая энергия, Дж</span>
+                </li>
+                <li>
+                    <input id="mechanical-work-end-kinetic-energy" type="number">
+                    <span>Конечная кинетическая энергия, Дж</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-mechanical-work-button">Рассчитать</button>
+            <output class="result-output" id="mechanical-work-result">Ответ: </output>
+            <span class="result-unit">Дж</span>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет кинетической энергии</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="kinetic-energy-mass" type="number">
+                    <span>Масса, кг</span>
+                </li>
+                <li>
+                    <input id="kinetic-energy-velocity" type="number">
+                    <span>Скорость, м/с</span>
+                </li>
+                <li>
+                    <input id="kinetic-energy-impulse" type="number">
+                    <span>Импульс, м*с</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-kinetic-energy-button">Рассчитать</button>
+            <output class="result-output" id="kinetic-energy-result">Ответ: </output>
+            <span class="result-unit">Дж</span>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет потенциальной энергии</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="potential-energy-mass" type="number">
+                    <span>Масса, кг</span>
+                </li>
+                <li>
+                    <input id="potential-energy-acceleration" type="number">
+                    <span>Ускорение, м/с^2</span>
+                </li>
+                <li>
+                    <input id="potential-energy-height" type="number">
+                    <span>Высота, м</span>
+                </li>
+                <li>
+                    <input id="potential-energy-hardness" type="number">
+                    <span>Коэффициент жесткости, Н/м</span>
+                </li>
+                <li>
+                    <input id="potential-energy-start-length" type="number">
+                    <span>Начальная длина, м</span>
+                </li>
+                <li>
+                    <input id="potential-energy-end-length" type="number">
+                    <span>Конечная длина, м</span>
+                </li>
+                <li>
+                    <input id="potential-energy-delta-length" type="number">
+                    <span>Изменение длины, м</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-potential-energy-button">Рассчитать</button>
+            <output class="result-output" id="potential-energy-result">Ответ: </output>
+            <span class="result-unit">Дж</span>
+        </div>
+        <div class="topic-header">
+            <p>
+                Кинематика
+            </p>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет ускорения</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="acceleration-start-velocity" type="number">
+                    <span>Начальная скорость, м/с</span>
+                </li>
+                <li>
+                    <input id="acceleration-end-velocity" type="number">
+                    <span>Конечная скорость, м/с</span>
+                </li>
+                <li>
+                   <input id="acceleration-elapsed-time" type="number">
+                   <span>Прошедшее время, с</span>
+                </li>
+                <li>
+                    <input id="acceleration-delta-velocity" type="number">
+                    <span>Изменение скорости, м/с</span>
+                </li>
+                <li>
+                    <input id="acceleration-elapsed-distance" type="number">
+                    <span>Пройденный путь, м</span>
+                </li>
+                <li>
+                    <input id="acceleration-total-force" type="number">
+                    <span>Сила, Н</span>
+                </li>
+                <li>
+                    <input id="acceleration-mass" type="number">
+                    <span>Масса, кг</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-acceleration-button">Рассчитать</button>
+            <output class="result-output" id="acceleration-result">Ответ: </output>
+            <span class="result-unit">м/с^2</span>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет начальной скорости</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="start-velocity-delta-velocity" type="number">
+                    <span>Изменение скорости, м/с</span>
+                </li>
+                <li>
+                    <input id="start-velocity-end-velocity" type="number">
+                    <span>Конечная скорость, м/с</span>
+                </li>
+                <li>
+                    <input id="start-velocity-acceleration" type="number">
+                    <span>Ускорение, м/с^2</span>
+                </li>
+                <li>
+                   <input id="start-velocity-elapsed-time" type="number">
+                   <span>Прошедшее время, с</span>
+                </li>
+                <li>
+                    <input id="start-velocity-elapsed-distance" type="number">
+                    <span>Пройденный путь, м</span>
+                </li>
+                <li>
+                    <input id="start-velocity-average-velocity" type="number">
+                    <span>Средняя скорость, м/с</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-start-velocity-button">Рассчитать</button>
+            <output class="result-output" id="start-velocity-result">Ответ: </output>
+            <span class="result-unit">м/с</span>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет средней скорости</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="average-velocity-start-velocity" type="number">
+                    <span>Начальная скорость, м/с</span>
+                </li>
+                <li>
+                    <input id="average-velocity-end-velocity" type="number">
+                    <span>Конечная скорость, м/с</span>
+                </li>
+                <li>
+                    <input id="average-velocity-delta-velocity" type="number">
+                    <span>Средняя скорость, м/с</span>
+                </li>
+                <li>
+                    <input id="average-velocity-acceleration" type="number">
+                    <span>Ускорение, м/с^2</span>
+                </li>
+                <li>
+                   <input id="average-velocity-elapsed-time" type="number">
+                   <span>Прошедшее время, с</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-average-velocity-button">Рассчитать</button>
+            <output class="result-output" id="average-velocity-result">Ответ: </output>
+            <span class="result-unit">м/с</span>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет конечной скорости</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="end-velocity-delta-velocity" type="number">
+                    <span>Изменение скорости, м/с</span>
+                </li>
+                <li>
+                    <input id="end-velocity-start-velocity" type="number">
+                    <span>Начальная скорость, м/с</span>
+                </li>
+                <li>
+                    <input id="end-velocity-acceleration" type="number">
+                    <span>Ускорение, м/с^2</span>
+                </li>
+                <li>
+                   <input id="end-velocity-elapsed-distance" type="number">
+                   <span>Пройденный путь, м</span>
+                </li>
+                <li>
+                   <input id="end-velocity-elapsed-time" type="number">
+                   <span>Прошедшее время, с</span>
+                </li>
+                <li>
+                    <input id="end-velocity-average-velocity" type="number">
+                    <span>Средняя скорость, м/с</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-end-velocity-button">Рассчитать</button>
+            <output class="result-output" id="end-velocity-result">Ответ: </output>
+            <span class="result-unit">м/с</span>
+        </div>
+        <div class="topic-header">
+            <p>
+                Статика
+            </p>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет плотности</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="density-mass" type="number">
+                    <span>Масса, кг</span>
+                </li>
+                <li>
+                    <input id="density-volume" type="number">
+                    <span>Объем, м^3</span>
+                </li>
+                <li>
+                    <input id="density-total-force" type="number">
+                    <span>Сила, Н/м</span>
+                </li>
+                <li>
+                    <input id="density-acceleration" type="number">
+                    <span>Ускорение, м/с^2</span>
+                </li>
+                <li>
+                    <input id="density-sensible-heat" type="number">
+                    <span>Количество теплоты, Дж</span>
+                </li>
+                <li>
+                    <input id="density-special-heat" type="number">
+                    <span>Удельная теплоемкость, Дж*кг/С°</span>
+                </li>
+                <li>
+                    <input id="density-delta-temperature" type="number">
+                    <span>Изменение температуры, С°</span>
+                </li>
+                <li>
+                    <input id="density-start-temperature" type="number">
+                    <span>Начальная температура, С°</span>
+                </li>
+                <li>
+                    <input id="density-end-temperature" type="number">
+                    <span>Конечная температура, С°</span>
+                </li>
+                <li>
+                    <input id="density-kinetic-energy" type="number">
+                    <span>Кинетическая энергия, Дж</span>
+                </li>
+                <li>
+                    <input id="density-velocity" type="number">
+                    <span>Скорость, м/с</span>
+                </li>
+                <li>
+                    <input id="density-potential-energy" type="number">
+                    <span>Потенциальная энергия, Дж</span>
+                </li>
+                <li>
+                    <input id="density-gravity-acceleration" type="number">
+                    <span>Ускорение свободного падения, м/с^2</span>
+                </li>
+                <li>
+                    <input id="density-height" type="number">
+                    <span>Высота падения, м</span>
+                </li>
+                <li>
+                    <input id="density-fusion-heat" type="number">
+                    <span>Количество теплоты плавления, Дж</span>
+                </li>
+                <li>
+                    <input id="density-specific-fusion-heat" type="number">
+                    <span>Удельная теплота плавления, Дж/кг</span>
+                </li>
+                <li>
+                    <input id="density-mole" type="number">
+                    <span>Моли</span>
+                </li>
+                <li>
+                    <input id="density-molar-mass" type="number">
+                    <span>Молярная масса, кг/моль</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-density-button">Рассчитать</button>
+            <output class="result-output" id="density-result">Ответ: </output>
+            <span class="result-unit">кг/м^3</span>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет объёма</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="volume-mass" type="number">
+                    <span>Масса, кг</span>
+                </li>
+                <li>
+                    <input id="volume-density" type="number">
+                    <span>Плотность, кг/м^3</span>
+                </li>
+                <li>
+                    <input id="volume-total-force" type="number">
+                    <span>Сила, Н/м</span>
+                </li>
+                <li>
+                    <input id="volume-acceleration" type="number">
+                    <span>Ускорение, м/с^2</span>
+                </li>
+                <li>
+                    <input id="volume-sensible-heat" type="number">
+                    <span>Количество теплоты, Дж</span>
+                </li>
+                <li>
+                    <input id="volume-special-heat" type="number">
+                    <span>Удельная теплоемкость, Дж*кг/С°</span>
+                </li>
+                <li>
+                    <input id="volume-delta-temperature" type="number">
+                    <span>Изменение температуры, С°</span>
+                </li>
+                <li>
+                    <input id="volume-start-temperature" type="number">
+                    <span>Начальная температура, С°</span>
+                </li>
+                <li>
+                    <input id="volume-end-temperature" type="number">
+                    <span>Конечная температура, С°</span>
+                </li>
+                <li>
+                    <input id="volume-kinetic-energy" type="number">
+                    <span>Кинетическая энергия, Дж</span>
+                </li>
+                <li>
+                    <input id="volume-velocity" type="number">
+                    <span>Скорость, м/с</span>
+                </li>
+                <li>
+                    <input id="volume-potential-energy" type="number">
+                    <span>Потенциальная энергия, Дж</span>
+                </li>
+                <li>
+                    <input id="volume-gravity-acceleration" type="number">
+                    <span>Ускорение свободного падения, м/с^2</span>
+                </li>
+                <li>
+                    <input id="volume-height" type="number">
+                    <span>Высота падения, м</span>
+                </li>
+                <li>
+                    <input id="volume-fusion-heat" type="number">
+                    <span>Количество теплоты плавления, Дж</span>
+                </li>
+                <li>
+                    <input id="volume-specific-fusion-heat" type="number">
+                    <span>Удельная теплота плавления, Дж/кг</span>
+                </li>
+                <li>
+                    <input id="volume-mole" type="number">
+                    <span>Моли</span>
+                </li>
+                <li>
+                    <input id="volume-molar-mass" type="number">
+                    <span>Молярная масса, кг/моль</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-volume-button">Рассчитать</button>
+            <output class="result-output" id="volume-result">Ответ: </output>
+            <span class="result-unit">м^3</span>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет массы</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="mass-density" type="number">
+                    <span>Плотность, кг/м^3</span>
+                </li>
+                <li>
+                    <input id="mass-volume" type="number">
+                    <span>Объём, м^3</span>
+                </li>
+                <li>
+                    <input id="mass-total-force" type="number">
+                    <span>Сила, Н/м</span>
+                </li>
+                <li>
+                    <input id="mass-acceleration" type="number">
+                    <span>Ускорение, м/с^2</span>
+                </li>
+                <li>
+                    <input id="mass-sensible-heat" type="number">
+                    <span>Количество теплоты, Дж</span>
+                </li>
+                <li>
+                    <input id="mass-special-heat" type="number">
+                    <span>Удельная теплоемкость, Дж*кг/С°</span>
+                </li>
+                <li>
+                    <input id="mass-delta-temperature" type="number">
+                    <span>Изменение температуры, С°</span>
+                </li>
+                <li>
+                    <input id="mass-start-temperature" type="number">
+                    <span>Начальная температура, С°</span>
+                </li>
+                <li>
+                    <input id="mass-end-temperature" type="number">
+                    <span>Конечная температура, С°</span>
+                </li>
+                <li>
+                    <input id="mass-kinetic-energy" type="number">
+                    <span>Кинетическая энергия, Дж</span>
+                </li>
+                <li>
+                    <input id="mass-velocity" type="number">
+                    <span>Скорость, м/с</span>
+                </li>
+                <li>
+                    <input id="mass-potential-energy" type="number">
+                    <span>Потенциальная энергия, Дж</span>
+                </li>
+                <li>
+                    <input id="mass-gravity-acceleration" type="number">
+                    <span>Ускорение свободного падения, м/с^2</span>
+                </li>
+                <li>
+                    <input id="mass-height" type="number">
+                    <span>Высота падения, м</span>
+                </li>
+                <li>
+                    <input id="mass-fusion-heat" type="number">
+                    <span>Количество теплоты плавления, Дж</span>
+                </li>
+                <li>
+                    <input id="mass-specific-fusion-heat" type="number">
+                    <span>Удельная теплота плавления, Дж/кг</span>
+                </li>
+                <li>
+                    <input id="mass-mole" type="number">
+                    <span>Моли</span>
+                </li>
+                <li>
+                    <input id="mass-molar-mass" type="number">
+                    <span>Молярная масса, кг/моль</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-mass-button">Рассчитать</button>
+            <output class="result-output" id="mass-result">Ответ: </output>
+            <span class="result-unit">кг</span>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет механического давления</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="force-pressure-force" type="number">
+                    <span>Сила, Н</span>
+                </li>
+                <li>
+                    <input id="force-pressure-area" type="number">
+                    <span>Площадь, м^2</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-force-pressure-button">Рассчитать</button>
+            <output class="result-output" id="force-pressure-result">Ответ: </output>
+            <span class="result-unit">Па</span>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет гидростатического давления</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="hydrostatic-pressure-density" type="number">
+                    <span>Плотность жидкости или газа, кг/м^3</span>
+                </li>
+                <li>
+                    <input id="hydrostatic-pressure-gravity-acceleration" type="number">
+                    <span>Ускорение свободного падения, м/с^2</span>
+                </li>
+                <li>
+                    <input id="hydrostatic-pressure-height" type="number">
+                    <span>Высота столба, м</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-hydrostatic-pressure-button">Рассчитать</button>
+            <output class="result-output" id="hydrostatic-pressure-result">Ответ: </output>
+            <span class="result-unit">Па</span>
+        </div>
+        <div class="mechanic">
+            <p class="formula-header"><strong>Расчет силы Архимеда</strong></p>
+            <ul class="formula-input">
+                <li>
+                    <input id="archimedes-force-density" type="number">
+                    <span>Плотность жидкости или газа, кг/м^3</span>
+                </li>
+                <li>
+                    <input id="archimedes-force-gravity-acceleration" type="number">
+                    <span>Ускорение свободного падения, м/с^2</span>
+                </li>
+                <li>
+                    <input id="archimedes-force-volume" type="number">
+                    <span>Объем погруженной части тела, м^3</span>
+                </li>
+                <li>
+                    <input id="archimedes-force-mass" type="number">
+                    <span>Масса погруженного тела, кг</span>
+                </li>
+            </ul>
+            <button class="calculate-button" id="calculate-archimedes-force-button">Рассчитать</button>
+            <output class="result-output" id="archimedes-force-result">Ответ: </output>
+            <span class="result-unit">Н</span>
+        </div>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateFrictionForceButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateMechanicalWorkButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateKineticEnergyButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculatePotentialEnergyButton.js') }}"></script>
+
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateAccelerationButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateStartVelocityButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateAverageVelocityButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateEndVelocityButton.js') }}"></script>
+
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateDensityButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateVolumeButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateMassButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateForcePressureButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateHydrostaticPressureButton.js') }}"></script>
+        <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic/CalculateArchimedesForceButton.js') }}"></script>
+    </body>
+</html>
