@@ -2,22 +2,24 @@
 <html>
     <head>
         <title>Формулы по физике</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     </head>
     <body>
-        <div class="main-div">
-            <p>
-                Привет, ученик! У тебя нет калькулятора, но нужно быстро посчитать ту самую массу из задачи по физике со звездочкой? Тогда тебе в этот физический калькулятор. С ним можно за 1 секунду посчитать нужную величину и увеличить свою продуктивность. А если нужна теория - ссылка на ЯКласс внизу!
-            </p>
-            <a href="https://www.yaklass.ru" target="_blank" rel="noopener noreferrer">ЯКласс - теория по физике</a>
+        <header class="main-header">
+            <p><strong>Физический калькулятор</strong></p>
+        </header>
+        <div class="greeting-div">
+            <p>Привет, ученик! У тебя мало времени или нет под рукой калькулятора, но тебе СРОЧНО нужно получить ту самую пятерку?</p>
+            <p>Добро пожаловать в Физический калькулятор! Здесь ты найдешь различные разделы по физике и сможешь быстро рассчитать величину.</p>
         </div>
-        <div class="main-div">
-            <p>
-                Выбери раздел физики, который тебе нужен: Электричество, Механика, Термодинамика.
-            </p>
-            <button class="physics-directiion" id="electricity-button">Электричество</button>
-            <button class="physics-directiion" id="mechanic-button">Механика</button>
-            <button class="physics-directiion" id="thermodynamic-button">Термодинамика</button>
+        <div class="science-div">
+            <p>Разделы физики: Электричество, Механика, Термодинамика</p>
+            <div class="science-section-choosing-div">
+                <button class="science-section-button" id="electricity-button">Электричество</button>
+                <button class="science-section-button" id="mechanics-button">Механика</button>
+                <button class="science-section-button" id="thermodynamics-button">Термодинамика</button>
+            </div> 
         </div>
         <script src="static/js/RedirectButtons/PhysicsRedirectButtons.js"></script>
     </body>

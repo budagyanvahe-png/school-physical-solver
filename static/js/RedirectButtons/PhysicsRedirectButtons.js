@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    const mechanicButton = document.getElementById("mechanic-button");
+    const mechanicsButton = document.getElementById("mechanics-button");
 
-    mechanicButton.addEventListener("click", function() {
+    mechanicsButton.addEventListener("click", function() {
 
         window.location.href = "mechanics"
         
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    const thermodynamicButton = document.getElementById("thermodynamic-button");
+    const thermodynamicsButton = document.getElementById("thermodynamics-button");
 
-    thermodynamicButton.addEventListener("click", function() {
+    thermodynamicsButton.addEventListener("click", function() {
 
         window.location.href = "thermodynamics"
         

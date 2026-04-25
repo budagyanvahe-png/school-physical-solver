@@ -6,18 +6,11 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/mechanics.css') }}">
     </head>
     <body>
-        <div class="topic-header">
-            <p>
-                Механика
-            </p>
+        <div class="mechanics-section-header science-section-header">
+            <p><strong>Механика (Динамика)</strong></p>
         </div>
-        <div class="topic-header">
-            <p>
-                Динамика
-            </p>
-        </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет силы трения</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет силы трения</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="friction-force-sliding-friction" type="number">
@@ -42,10 +35,10 @@
             </ul>
             <button class="calculate-button" id="calculate-friction-force-button">Рассчитать</button>
             <output class="result-output" id="friction-force-result">Ответ: </output>
-            <span class="result-unit">Н</span>
+            <span class="result-measuring-unit">Н</span>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет механической работы</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет механической работы</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="mechanical-work-total-force" type="number">
@@ -70,10 +63,10 @@
             </ul>
             <button class="calculate-button" id="calculate-mechanical-work-button">Рассчитать</button>
             <output class="result-output" id="mechanical-work-result">Ответ: </output>
-            <span class="result-unit">Дж</span>
+            <span class="result-measuring-unit">Дж</span>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет кинетической энергии</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет кинетической энергии</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="kinetic-energy-mass" type="number">
@@ -90,10 +83,10 @@
             </ul>
             <button class="calculate-button" id="calculate-kinetic-energy-button">Рассчитать</button>
             <output class="result-output" id="kinetic-energy-result">Ответ: </output>
-            <span class="result-unit">Дж</span>
+            <span class="result-measuring-unit">Дж</span>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет потенциальной энергии</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет потенциальной энергии</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="potential-energy-mass" type="number">
@@ -126,15 +119,13 @@
             </ul>
             <button class="calculate-button" id="calculate-potential-energy-button">Рассчитать</button>
             <output class="result-output" id="potential-energy-result">Ответ: </output>
-            <span class="result-unit">Дж</span>
+            <span class="result-measuring-unit">Дж</span>
         </div>
-        <div class="topic-header">
-            <p>
-                Кинематика
-            </p>
+        <div class="mechanics-section-header science-section-header">
+            <p><strong>Механика (Кинематика)</strong></p>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет ускорения</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет ускорения</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="acceleration-start-velocity" type="number">
@@ -167,10 +158,10 @@
             </ul>
             <button class="calculate-button" id="calculate-acceleration-button">Рассчитать</button>
             <output class="result-output" id="acceleration-result">Ответ: </output>
-            <span class="result-unit">м/с^2</span>
+            <span class="result-measuring-unit">м/с^2</span>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет начальной скорости</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет начальной скорости</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="start-velocity-delta-velocity" type="number">
@@ -199,10 +190,10 @@
             </ul>
             <button class="calculate-button" id="calculate-start-velocity-button">Рассчитать</button>
             <output class="result-output" id="start-velocity-result">Ответ: </output>
-            <span class="result-unit">м/с</span>
+            <span class="result-measuring-unit">м/с</span>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет средней скорости</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет средней скорости</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="average-velocity-start-velocity" type="number">
@@ -227,10 +218,10 @@
             </ul>
             <button class="calculate-button" id="calculate-average-velocity-button">Рассчитать</button>
             <output class="result-output" id="average-velocity-result">Ответ: </output>
-            <span class="result-unit">м/с</span>
+            <span class="result-measuring-unit">м/с</span>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет конечной скорости</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет конечной скорости</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="end-velocity-delta-velocity" type="number">
@@ -259,15 +250,13 @@
             </ul>
             <button class="calculate-button" id="calculate-end-velocity-button">Рассчитать</button>
             <output class="result-output" id="end-velocity-result">Ответ: </output>
-            <span class="result-unit">м/с</span>
+            <span class="result-measuring-unit">м/с</span>
         </div>
-        <div class="topic-header">
-            <p>
-                Статика
-            </p>
+        <div class="mechanics-section-header science-section-header">
+            <p><strong>Механика (Статика)</strong></p>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет плотности</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет плотности</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="density-mass" type="number">
@@ -344,10 +333,10 @@
             </ul>
             <button class="calculate-button" id="calculate-density-button">Рассчитать</button>
             <output class="result-output" id="density-result">Ответ: </output>
-            <span class="result-unit">кг/м^3</span>
+            <span class="result-measuring-unit">кг/м^3</span>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет объёма</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет объёма</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="volume-mass" type="number">
@@ -424,10 +413,10 @@
             </ul>
             <button class="calculate-button" id="calculate-volume-button">Рассчитать</button>
             <output class="result-output" id="volume-result">Ответ: </output>
-            <span class="result-unit">м^3</span>
+            <span class="result-measuring-unit">м^3</span>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет массы</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет массы</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="mass-density" type="number">
@@ -504,10 +493,10 @@
             </ul>
             <button class="calculate-button" id="calculate-mass-button">Рассчитать</button>
             <output class="result-output" id="mass-result">Ответ: </output>
-            <span class="result-unit">кг</span>
+            <span class="result-measuring-unit">кг</span>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет механического давления</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет механического давления</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="force-pressure-force" type="number">
@@ -520,10 +509,10 @@
             </ul>
             <button class="calculate-button" id="calculate-force-pressure-button">Рассчитать</button>
             <output class="result-output" id="force-pressure-result">Ответ: </output>
-            <span class="result-unit">Па</span>
+            <span class="result-measuring-unit">Па</span>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет гидростатического давления</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет гидростатического давления</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="hydrostatic-pressure-density" type="number">
@@ -540,10 +529,10 @@
             </ul>
             <button class="calculate-button" id="calculate-hydrostatic-pressure-button">Рассчитать</button>
             <output class="result-output" id="hydrostatic-pressure-result">Ответ: </output>
-            <span class="result-unit">Па</span>
+            <span class="result-measuring-unit">Па</span>
         </div>
-        <div class="mechanic physics-section-div">
-            <p class="formula-header"><strong>Расчет силы Архимеда</strong></p>
+        <div class="mechanics-div formula-div">
+            <p class="mechanic-formula-header formula-header"><strong>Расчет силы Архимеда</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="archimedes-force-density" type="number">
@@ -564,7 +553,7 @@
             </ul>
             <button class="calculate-button" id="calculate-archimedes-force-button">Рассчитать</button>
             <output class="result-output" id="archimedes-force-result">Ответ: </output>
-            <span class="result-unit">Н</span>
+            <span class="result-measuring-unit">Н</span>
         </div>
         <script type="module" src="{{ url_for('static', filename='js/Physics/Mechanic.js') }}"></script>
     </body>

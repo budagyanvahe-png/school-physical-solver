@@ -1,5 +1,17 @@
-.thermodynamic {
+.thermodynamics-div {
     border-color: orange;
     text-align: left;
     background-color: wheat;
+}
+
+.thermodynamics-section-header {
+    color: yellow;
+    background-color: wheat;
+    text-shadow: 2px 2px 4px red;
+    border-color: darkorange;
+}
+
+.thermodynamics-formula-header {
+    color: yellow;
+    text-shadow: 2px 2px 4px red
 }

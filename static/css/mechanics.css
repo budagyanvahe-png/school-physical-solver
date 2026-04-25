@@ -1,5 +1,17 @@
-.mechanic {
+.mechanics-div {
     border-color: gray;
     text-align: left;
     background-color: lightgrey;
+}
+
+.mechanics-section-header {
+    color: black;
+    background-color: lightgray;
+    text-shadow: 2px 2px 4px darkslategray;
+    border-color: gray;
+}
+
+.mechanics-formula-header {
+    color: black;
+    text-shadow: 2px 2px 4px darkslategray
 }

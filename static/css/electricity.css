@@ -1,5 +1,17 @@
-.electricity {
+.electricity-div {
     border-color: blue;
     text-align: left;
     background-color: lightblue;
+}
+
+.electricity-section-header {
+    color: yellow;
+    background-color: lightblue;
+    text-shadow: 2px 2px 4px darkgoldenrod;
+    border-color: blue;
+}
+
+.electricity-formula-header {
+    color: yellow;
+    text-shadow: 2px 2px 4px darkgoldenrod;
 }

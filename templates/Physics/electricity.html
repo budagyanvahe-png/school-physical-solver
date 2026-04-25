@@ -6,13 +6,11 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/electricity.css') }}">
     </head>
     <body>
-        <div class="topic-header">
-            <p>
-                Электричество
-            </p>
+        <div class="electricity-section-header science-section-header">
+            <p><strong>Электричество</strong></p>
         </div>
-        <div class="electricity physics-section-div" id="joule-lenz-formula">
-            <p class="formula-header"><strong>Расчет тепла по закону Джоуля-Ленца</strong></p>
+        <div class="electricity-div formula-div" id="joule-lenz-formula">
+            <p class="electricity-formula-header formula-header"><strong>Расчет тепла по закону Джоуля-Ленца</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="joule-lenz-current" type="number">
@@ -37,10 +35,10 @@
             </ul>
             <button class="calculate-button" id="calculate-dissipated-heat-button">Рассчитать</button>
             <output class="result-output" id="dissipated-heat-result">Ответ: </output>
-            <span class="result-unit">Дж</span>
+            <span class="result-measuring-unit">Дж</span>
         </div>
-        <div class="electricity physics-section-div" id="voltage-formula">
-            <p class="formula-header"><strong>Расчет напряжения</strong></p>
+        <div class="electricity-div formula-div" id="voltage-formula">
+            <p class="electricity-formula-header formula-header"><strong>Расчет напряжения</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="voltage-current" type="number">
@@ -65,10 +63,10 @@
             </ul>
             <button class="calculate-button" id="calculate-voltage-button">Рассчитать</button>
             <output class="result-output" id="voltage-result">Ответ: </output>
-            <span class="result-unit">В</span>
+            <span class="result-measuring-unit">В</span>
         </div>
-        <div class="electricity physics-section-div" id="current-formula">
-            <p class="formula-header"><strong>Расчет силы тока</strong></p>
+        <div class="electricity-div formula-div" id="current-formula">
+            <p class="electricity-formula-header formula-header"><strong>Расчет силы тока</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="current-voltage" type="number">
@@ -93,10 +91,10 @@
             </ul>
             <button class="calculate-button" id="calculate-current-button">Рассчитать</button>
             <output class="result-output" id="current-result">Ответ: </output>
-            <span class="result-unit">А</span>
+            <span class="result-measuring-unit">А</span>
         </div>
-        <div class="electricity physics-section-div" id="resistance-formula">
-            <p class="formula-header"><strong>Расчет сопротивления</strong></p>
+        <div class="electricity-div formula-div" id="resistance-formula">
+            <p class="electricity-formula-header formula-header"><strong>Расчет сопротивления</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="resistance-voltage" type="number">
@@ -132,11 +130,11 @@
                 </li>
             </ul>
             <button class="calculate-button" id="calculate-resistance-button">Рассчитать</button>
-            <output class="result-output" id="resistance-result">Ответ: </output>
+            <output class="result-measuring-unit" id="resistance-result">Ответ: </output>
             <span class="result-unit">Ом</span>
         </div>
-        <div class="electricity physics-section-div" id="electrical-power-formula">
-            <p class="formula-header"><strong>Расчет электрической мощности</strong></p>
+        <div class="electricity-div formula-div" id="electrical-power-formula">
+            <p class="electricity-formula-header formula-header"><strong>Расчет электрической мощности</strong></p>
             <ul class="formula-input">
                 <li>
                     <input id="electrical-power-voltage" type="number">
@@ -161,7 +159,7 @@
             </ul>
             <button class="calculate-button" id="calculate-electrical-power-button">Рассчитать</button>
             <output class="result-output" id="electrical-power-result">Ответ: </output>
-            <span class="result-unit">Вт</span>
+            <span class="result-measuring-unit">Вт</span>
         </div>
         <script type="module" src="{{ url_for('static', filename='js/Physics/Electricity.js') }}"></script>
         <script type="module" src="{{ url_for('static', filename='js/Physics/RedirectToIndexButton.js') }}"></script>
