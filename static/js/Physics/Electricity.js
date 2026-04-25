@@ -1,43 +1,6 @@
-import { errorPhrase, answerPhrase, calculateEndpoint } from "/static/js/config.js";
-
-document.addEventListener("DOMContentLoaded", function() {
-
-    const voltageInput = document.getElementById("current-voltage");
-    const resistanceInput = document.getElementById("current-resistance");
-    const dissipatedHeatInput = document.getElementById("current-dissipated-heat");
-    const elapsedTimeInput = document.getElementById("current-elapsed-time");
-    const electricalPowerInput = document.getElementById("current-electrical-power");
-    const calculateButton = document.getElementById("calculate-current-button");
-    const resultOutput = document.getElementById("current-result");
-
-    calculateButton.addEventListener("click", function() {
-        fetch(calculateEndpoint, {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                formula_type: "get_current",
-                data: {
-                    voltage: voltageInput.value || null,
-                    resistance: resistanceInput.value || null,
-                    dissipated_heat: dissipatedHeatInput.value || null,
-                    elapsed_time: elapsedTimeInput.value || null,
-                    electrical_power: electricalPowerInput.value || null,
-                }
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
-            const answerIsNotNull = answer !== null;
-
-            if (answerIsNotNull){
-                resultOutput.innerText = `${answerPhrase}${answer}`;
-            } else {
-                resultOutput.innerText = errorPhrase;
-            }
-        });
-    });
-});
+import { calculateEndpoint } from "../Config/Endpoints.js";
+import { errorPhrase, answerPhrase } from "../Config/Phrases.js";
+import { dissipatedHeatQuantity, voltageQuantity, currentQuantity, resistanceQuantity, electricalPowerQuantity } from "../Config/FormulasRegistry/PhysicalQuantityRegistry.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     
@@ -54,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-                formula_type: "get_dissipated_heat",
-                data: {
+                calculable_physical_quantity: dissipatedHeatQuantity,
+                physical_quantity_data: {
                     current: currentInput.value || null,
                     resistance: resistanceInput.value || null,
                     elapsed_time: elapsedTimeInput.value || null,
@@ -65,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         })
         .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
             const answerIsNotNull = answer !== null;
 
             if (answerIsNotNull){
@@ -79,32 +42,72 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    const voltageInput = document.getElementById("electrical-power-voltage");
-    const currentInput = document.getElementById("electrical-power-current");
-    const resistanceInput = document.getElementById("electrical-power-resistance");
-    const dissipatedHeatInput = document.getElementById("electrical-power-dissipated-heat");
-    const elapsedTimeInput = document.getElementById("electrical-power-elapsed-time");
-    const calculateButton = document.getElementById("calculate-electrical-power-button");
-    const resultOutput = document.getElementById("electrical-power-result");
 
-    calculateButton.addEventListener("click", function(){
+    const currentInput = document.getElementById("voltage-current");
+    const resistanceInput = document.getElementById("voltage-resistance");
+    const dissipatedHeatInput = document.getElementById("voltage-dissipated-heat");
+    const elapsedTimeInput = document.getElementById("voltage-elapsed-time");
+    const electricicalPowerInput = document.getElementById("voltage-electrical-power");
+    const calculateButton = document.getElementById("calculate-voltage-button");
+    const resultOutput = document.getElementById("voltage-result");
+
+    calculateButton.addEventListener("click", function() {
         fetch(calculateEndpoint, {
-            headers: {"Content-Type": "application/json"},
             method: "POST",
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-                formula_type: "get_electrical_power",
-                data: {
-                    voltage: voltageInput.value || null,
+                calculable_physical_quantity: voltageQuantity,
+                physical_quantity_data: {
                     current: currentInput.value || null,
                     resistance: resistanceInput.value || null,
                     dissipated_heat: dissipatedHeatInput.value || null,
                     elapsed_time: elapsedTimeInput.value || null,
+                    electrical_power: electricicalPowerInput.value || null,
                 }
             })
         })
         .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
+            const answerIsNotNull = answer !== null;
+
+            if (answerIsNotNull){
+                resultOutput.innerText = `${answerPhrase}${answer}`;
+            } else {
+                resultOutput.innerText = errorPhrase;
+            }
+        })
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const voltageInput = document.getElementById("current-voltage");
+    const resistanceInput = document.getElementById("current-resistance");
+    const dissipatedHeatInput = document.getElementById("current-dissipated-heat");
+    const elapsedTimeInput = document.getElementById("current-elapsed-time");
+    const electricalPowerInput = document.getElementById("current-electrical-power");
+    const calculateButton = document.getElementById("calculate-current-button");
+    const resultOutput = document.getElementById("current-result");
+
+    calculateButton.addEventListener("click", function() {
+        fetch(calculateEndpoint, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                calculable_physical_quantity: currentQuantity,
+                physical_quantity_data: {
+                    voltage: voltageInput.value || null,
+                    resistance: resistanceInput.value || null,
+                    dissipated_heat: dissipatedHeatInput.value || null,
+                    elapsed_time: elapsedTimeInput.value || null,
+                    electrical_power: electricalPowerInput.value || null,
+                }
+            })
+        })
+        .then(response => response.json())
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
             const answerIsNotNull = answer !== null;
 
             if (answerIsNotNull){
@@ -133,8 +136,8 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {"Content-Type": "application/json"},
             method: "POST",
             body: JSON.stringify({
-                formula_type: "get_resistance",
-                data: {
+                calculable_physical_quantity: resistanceQuantity,
+                physical_quantity_data: {
                     voltage: voltageInput.value || null,
                     current: currentInput.value || null,
                     dissipated_heat: dissipdatedHeatInput.value || null,
@@ -147,8 +150,8 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         })
         .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
             const answerIsNotNull = answer !== null;
 
             if (answerIsNotNull){
@@ -161,33 +164,32 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+    const voltageInput = document.getElementById("electrical-power-voltage");
+    const currentInput = document.getElementById("electrical-power-current");
+    const resistanceInput = document.getElementById("electrical-power-resistance");
+    const dissipatedHeatInput = document.getElementById("electrical-power-dissipated-heat");
+    const elapsedTimeInput = document.getElementById("electrical-power-elapsed-time");
+    const calculateButton = document.getElementById("calculate-electrical-power-button");
+    const resultOutput = document.getElementById("electrical-power-result");
 
-    const currentInput = document.getElementById("voltage-current");
-    const resistanceInput = document.getElementById("voltage-resistance");
-    const dissipatedHeatInput = document.getElementById("voltage-dissipated-heat");
-    const elapsedTimeInput = document.getElementById("voltage-elapsed-time");
-    const electricicalPowerInput = document.getElementById("voltage-electrical-power");
-    const calculateButton = document.getElementById("calculate-voltage-button");
-    const resultOutput = document.getElementById("voltage-result");
-
-    calculateButton.addEventListener("click", function() {
+    calculateButton.addEventListener("click", function(){
         fetch(calculateEndpoint, {
-            method: "POST",
             headers: {"Content-Type": "application/json"},
+            method: "POST",
             body: JSON.stringify({
-                formula_type: "get_voltage",
-                data: {
+                calculable_physical_quantity: electricalPowerQuantity,
+                physical_quantity_data: {
+                    voltage: voltageInput.value || null,
                     current: currentInput.value || null,
                     resistance: resistanceInput.value || null,
                     dissipated_heat: dissipatedHeatInput.value || null,
                     elapsed_time: elapsedTimeInput.value || null,
-                    electrical_power: electricicalPowerInput.value || null,
                 }
             })
         })
         .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
             const answerIsNotNull = answer !== null;
 
             if (answerIsNotNull){
@@ -195,6 +197,6 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 resultOutput.innerText = errorPhrase;
             }
-        })
+        });
     });
 });

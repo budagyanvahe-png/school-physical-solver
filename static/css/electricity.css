@@ -1,12 +1,4 @@
 .electricity {
-    border: 8px solid blue;
+    border-color: blue;
     text-align: left;
-}
-
-.electricity p {
-    font-family: Arial;
-}
-
-.electricity ul li {
-    font-family: Arial;
 }

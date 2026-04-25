@@ -1,12 +1,4 @@
 .thermodynamic {
-    border: 8px solid orange;
+    border-color: orange;
     text-align: left;
-}
-
-.thermodynamic p {
-    font-family: Arial;
-}
-
-.thermodynamic ul li {
-    font-family: Arial;
 }

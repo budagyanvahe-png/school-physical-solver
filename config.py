@@ -3,13 +3,13 @@ from enum import Enum
 class Endpoints(Enum):
     INDEX = "/"
     ELECTRICITY = "/electricity"
-    MECHANIC = "/mechanic"
-    THERMODYNAMIC = "/thermodynamic"
+    MECHANICS = "/mechanics"
+    THERMODYNAMICS = "/thermodynamics"
 
     CALCULATE = "/calculate"
 
 class Templates(Enum):
     INDEX = "index.html"
-    ELECTRICITY = "electricity.html"
-    MECHANIC = "mechanic.html"
-    THERMODYNAMIC = "thermodynamic.html"
+    ELECTRICITY = "Physics/electricity.html"
+    MECHANICS = "Physics/mechanics.html"
+    THERMODYNAMICS = "Physics/thermodynamics.html"

@@ -3,6 +3,7 @@
     font-size: 32px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    border-radius: 16px;
 }
 
 .formula-header {
@@ -12,6 +13,7 @@
 
 .formula-input {
     text-align: left;
+    font-family: Arial;
 }
 
 .result-output {
@@ -36,5 +38,13 @@
 .redirect-to-index-button {
     font-family: Arial, Helvetica, sans-serif;
     border: 8px outset black;
+    border-radius: 16px;
+}
+
+.physics-section-div {
+    font-family: Arial;
+    font-size: 16px;
+    border-width: 8px;
+    border-style: solid;
     border-radius: 16px;
 }

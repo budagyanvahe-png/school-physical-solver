@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from config import Endpoints, Templates
 from typing import Callable
-from formula_map import formulas_map
+from FormulasRegistry.physical_quantity_registry import physical_quantity_map
 
 app: Flask = Flask(__name__)
 
@@ -13,23 +13,23 @@ def index() -> str:
 def electricity() -> str:
     return render_template(Templates.ELECTRICITY.value)
 
-@app.route(Endpoints.MECHANIC.value)
-def mechanic() -> str:
-    return render_template(Templates.MECHANIC.value)
+@app.route(Endpoints.MECHANICS.value)
+def mechanics() -> str:
+    return render_template(Templates.MECHANICS.value)
 
-@app.route(Endpoints.THERMODYNAMIC.value)
-def thermodynamic() -> str:
-    return render_template(Templates.THERMODYNAMIC.value)
+@app.route(Endpoints.THERMODYNAMICS.value)
+def thermodynamics() -> str:
+    return render_template(Templates.THERMODYNAMICS.value)
 
 @app.route(Endpoints.CALCULATE.value, methods=["POST"])
 def calculate_formula():
     incoming_data = request.get_json()
 
-    formula_type: str = incoming_data.get("formula_type")
-    data: dict = incoming_data.get("data")
+    calculable_physical_quantity: str = incoming_data.get("calculable_physical_quantity")
+    physical_quantity_data: dict = incoming_data.get("physical_quantity_data")
 
-    formula_function: Callable = formulas_map[formula_type]
-    result: str = formula_function(**data)
+    formula_function: Callable = physical_quantity_map[calculable_physical_quantity]
+    result: str = formula_function(**physical_quantity_data)
 
     print(result)
 

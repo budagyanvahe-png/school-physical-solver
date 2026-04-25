@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     mechanicButton.addEventListener("click", function() {
 
-        window.location.href = "mechanic"
+        window.location.href = "mechanics"
         
     });
 
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     thermodynamicButton.addEventListener("click", function() {
 
-        window.location.href = "thermodynamic"
+        window.location.href = "thermodynamics"
         
     });
 

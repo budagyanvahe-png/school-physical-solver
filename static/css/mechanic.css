@@ -1,12 +1,4 @@
 .mechanic {
-    border: 8px solid gray;
+    border-color: gray;
     text-align: left;
-}
-
-.mechanic p {
-    font-family: Arial;
-}
-
-.mechanic ul li {
-    font-family: Arial;
 }

@@ -1,4 +1,164 @@
-import { errorPhrase, answerPhrase, calculateEndpoint } from "/static/js/config.js";
+import { calculateEndpoint } from "../Config/Endpoints.js";
+import { errorPhrase, answerPhrase } from "../Config/Phrases.js";
+import { frictionForceQuantity, mechanicalWorkQuantity, kineticEnergyQuantity, potentialEnergyQuantity } from "../Config/FormulasRegistry/PhysicalQuantityRegistry.js";
+import { accelerationQuantity, startVelocityQuantity, averageVelocityQuantity, endVelocityQuantity } from "../Config/FormulasRegistry/PhysicalQuantityRegistry.js";
+import { densityQuantity, volumeQuantity, massQuantity, forcePressureQuantity,hydrostaticPressureQuantity, archimedesForceQuantity } from "../Config/FormulasRegistry/PhysicalQuantityRegistry.js";
+
+//Dynamics
+
+document.addEventListener("DOMContentLoaded", function() {
+    const slidingFrictionInput = document.getElementById("friction-force-sliding-friction");
+    const supportReactionInput = document.getElementById("friction-force-support-reaction");
+    const massInput = document.getElementById("friction-force-mass");
+    const accelerationInput = document.getElementById("friction-force-acceleration");
+    const angleInput = document.getElementById("friction-force-angle");
+    const calculateButton = document.getElementById("calculate-friction-force-button");
+    const resultOutput = document.getElementById("friction-force-result");
+
+    calculateButton.addEventListener("click", function() {
+        fetch(calculateEndpoint, {
+            headers: {"Content-type": "application/json"},
+            method: "POST",
+            body: JSON.stringify({
+                calculable_physical_quantity: frictionForceQuantity,
+                physical_quantity_data: {
+                    sliding_friction: slidingFrictionInput.value || null,
+                    support_reaction: supportReactionInput.value || null,
+                    mass: massInput.value || null,
+                    acceleration: accelerationInput.value || null,
+                    angle: angleInput.value || null,
+                }
+            })
+        })
+        .then(response => response.json())
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
+            const answerIsNotNull = answer !== null;
+
+            if (answerIsNotNull) {
+                resultOutput.innerText = `${answerPhrase}${answer}`;
+            } else {
+                resultOutput.innerText = errorPhrase;
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const totalForceInput = document.getElementById("mechanical-work-total-force");
+    const elapsedDistanceInput = document.getElementById("mechanical-work-elapsed-distance");
+    const angleInput = document.getElementById("mechanical-work-angle");
+    const startKineticEnergy = document.getElementById("mechanical-work-start-kinetic-energy");
+    const endKineticEnergy = document.getElementById("mechanical-work-end-kinetic-energy");
+    const calculateButton = document.getElementById("calculate-mechanical-work-button");
+    const resultOutput = document.getElementById("mechanical-work-result");
+
+    calculateButton.addEventListener("click", function() {
+        fetch(calculateEndpoint, {
+            headers: {"Content-type": "application/json"},
+            method: "POST",
+            body: JSON.stringify({
+                calculable_physical_quantity: mechanicalWorkQuantity,
+                physical_quantity_data: {
+                    total_force: totalForceInput.value || null,
+                    elapsed_distance: elapsedDistanceInput.value || null,
+                    angle: angleInput.value || null,
+                    start_kinetic_energy: startKineticEnergy.value || null,
+                    end_kinetic_energy: endKineticEnergy.value || null,
+                }
+            })
+        })
+        .then(response => response.json())
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
+            const answerIsNotNull = answer !== null;
+
+            if (answerIsNotNull) {
+                resultOutput.innerText = `${answerPhrase}${answer}`;
+            } else {
+                resultOutput.innerText = errorPhrase;
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const massInput = document.getElementById("kinetic-energy-mass");
+    const velocityInput = document.getElementById("kinetic-energy-velocity");
+    const impulseInput = document.getElementById("kinetic-energy-impulse");
+    const calculateButton = document.getElementById("calculate-kinetic-energy-button");
+    const resultOutput = document.getElementById("kinetic-energy-result");
+
+    calculateButton.addEventListener("click", function() {
+        fetch(calculateEndpoint, {
+            headers: {"Content-type": "application/json"},
+            method: "POST",
+            body: JSON.stringify({
+                calculable_physical_quantity: kineticEnergyQuantity,
+                physical_quantity_data: {
+                    mass: massInput.value || null,
+                    velocity: velocityInput.value || null,
+                    impulse: impulseInput.value || null,
+                }
+            })
+        })
+        .then(responce => responce.json())
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
+            const answerIsNotNull = answer !== null;
+
+            if (answerIsNotNull) {
+                resultOutput.innerText = `${answerPhrase}${answer}`;
+            } else {
+                resultOutput.innerText = errorPhrase;                
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const massInput = document.getElementById("potential-energy-mass");
+    const accelerationInput = document.getElementById("potential-energy-acceleration");
+    const heightInput = document.getElementById("potential-energy-height");
+    const hardnessInput = document.getElementById("potential-energy-hardness");
+    const startLengthInput = document.getElementById("potential-energy-start-length");
+    const endLengthInput = document.getElementById("potential-energy-end-length");
+    const deltaLengthInput = document.getElementById("potential-energy-delta-length");
+    const calculateButton = document.getElementById("calculate-potential-energy-button");
+    const resultOutput = document.getElementById("potential-energy-result");
+
+    calculateButton.addEventListener("click", function() {
+        fetch(calculateEndpoint, {
+            headers: {"Content-type": "application/json"},
+            method: "POST",
+            body: JSON.stringify({
+                calculable_physical_quantity: potentialEnergyQuantity,
+                physical_quantity_data: {
+                    mass: massInput.value || null,
+                    acceleration: accelerationInput.value || null,
+                    height: heightInput.value || null,
+                    hardness: hardnessInput.value || null,
+                    start_length: startLengthInput.value || null,
+                    end_length: endLengthInput.value || null,
+                    delta_length: deltaLengthInput.value || null,
+                }
+            })
+        })
+        .then(response => response.json())
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
+            const answerIsNotNull = answer !== null;
+
+            if (answerIsNotNull) {
+                resultOutput.innerText = `${answerPhrase}${answer}`;
+            } else {
+                resultOutput.innerText = errorPhrase;
+            }
+        });
+    });
+});
+
+//Kinematics
 
 document.addEventListener("DOMContentLoaded", function() {
     const startVelocityInput = document.getElementById("acceleration-start-velocity");
@@ -16,8 +176,8 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {"Content-Type": "application/json"},
             method: "POST",
             body: JSON.stringify({
-                formula_type: "get_acceleration",
-                data: {
+                calculable_physical_quantity: accelerationQuantity,
+                physical_quantity_data: {
                     start_velocity: startVelocityInput.value || null,
                     end_velocity: endVelocityInput.value || null,
                     elapsed_time: elapsedTimeInput.value || null,
@@ -29,8 +189,8 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         })
         .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
             const answerIsNotNull = answer !== null;
 
             if (answerIsNotNull) {
@@ -43,30 +203,34 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    const densityInput = document.getElementById("archimedes-force-density");
-    const gravityAccelerationInput = document.getElementById("archimedes-force-gravity-acceleration");
-    const volumeInput = document.getElementById("archimedes-force-volume");
-    const massInput = document.getElementById("archimedes-force-mass");
-    const calculateButton = document.getElementById("calculate-archimedes-force-button");
-    const resultOutput = document.getElementById("archimedes-force-result");
+    const deltaVelocityInput = document.getElementById("start-velocity-delta-velocity");
+    const endVelocityInput = document.getElementById("start-velocity-end-velocity");
+    const accelerationInput = document.getElementById("start-velocity-acceleration");
+    const elapsedTimeInput = document.getElementById("start-velocity-elapsed-time");
+    const elapsedDistanceInput = document.getElementById("start-velocity-elapsed-distance");
+    const averageVelocityInput = document.getElementById("start-velocity-average-velocity");
+    const calculateButton = document.getElementById("calculate-start-velocity-button");
+    const resultOutput = document.getElementById("start-velocity-result");
 
     calculateButton.addEventListener("click", function() {
         fetch(calculateEndpoint, {
             headers: {"Content-type": "application/json"},
             method: "POST",
             body: JSON.stringify({
-                formula_type: "get_archimedes_force",
-                data: {
-                    density: densityInput.value || null,
-                    gravity_acceleration: gravityAccelerationInput.value || null,
-                    volume: volumeInput.value || null,
-                    mass: massInput.value || null,
-                }
+                calculable_physical_quantity: startVelocityQuantity,
+                physical_quantity_data: {
+                    delta_velocity: deltaVelocityInput.value || null,
+                    end_velocity: endVelocityInput.value || null,
+                    acceleration: accelerationInput.value || null,
+                    elapsed_time: elapsedTimeInput.value || null,
+                    elapsed_distance: elapsedDistanceInput.value || null,
+                    average_velocity: averageVelocityInput.value || null,
+                },
             })
         })
         .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
             const answerIsNotNull = answer !== null;
 
             if (answerIsNotNull) {
@@ -92,8 +256,8 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {"Content-type": "application/json"},
             method: "POST",
             body: JSON.stringify({
-                formula_type: "get_average_velocity",
-                data: {
+                calculable_physical_quantity: averageVelocityQuantity,
+                physical_quantity_data: {
                     start_velocity: startVelocityInput.value || null,
                     end_velocity: endVelocityInput.value || null,
                     delta_velocity: deltaVelocityInput.value || null,
@@ -103,8 +267,8 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         })
         .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
             const answerIsNotNull = answer !== null;
 
             if (answerIsNotNull) {
@@ -115,6 +279,48 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const deltaVelocityInput = document.getElementById("end-velocity-delta-velocity");
+    const startVelocityInput = document.getElementById("end-velocity-start-velocity");
+    const accelerationInput = document.getElementById("end-velocity-acceleration");
+    const elapsedDistanceInput = document.getElementById("end-velocity-elapsed-distance");
+    const elapsedTimeInput = document.getElementById("end-velocity-elapsed-time");
+    const averageVelocityInput = document.getElementById("end-velocity-average-velocity");
+    const calculateButton = document.getElementById("calculate-end-velocity-button");
+    const resultOutput = document.getElementById("end-velocity-result");
+
+    calculateButton.addEventListener("click", function() {
+        fetch(calculateEndpoint, {
+            headers: {"Content-type": "application/json"},
+            method: "POST",
+            body: JSON.stringify({
+                calculable_physical_quantity: endVelocityQuantity,
+                physical_quantity_data: {
+                    delta_velocity: deltaVelocityInput.value || null,
+                    start_velocity: startVelocityInput.value || null,
+                    acceleration: accelerationInput.value || null,
+                    elapsed_distance: elapsedDistanceInput.value || null,
+                    elapsed_time: elapsedTimeInput.value || null,
+                    average_velocity: averageVelocityInput.value || null,
+                },
+            })
+        })
+        .then(response => response.json())
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
+            const answerIsNotNull = answer !== null;
+
+            if (answerIsNotNull) {
+                resultOutput.innerText = `${answerPhrase}${answer}`;
+            } else {
+                resultOutput.innerText = errorPhrase;
+            }
+        });
+    });
+});
+
+//Statics
 
 document.addEventListener("DOMContentLoaded", function() {
     const massInput = document.getElementById("density-mass");
@@ -143,8 +349,8 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {"Content-type": "application/json"},
             method: "POST",
             body: JSON.stringify({
-                formula_type: "get_density",
-                data: {
+                calculable_physical_quantity: densityQuantity,
+                physical_quantity_data: {
                     mass: massInput.value || null,
                     volume: volumeInput.value || null,
                     total_force: totalForceInput.value || null,
@@ -167,370 +373,8 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         })
         .then(responce => responce.json())
-        .then(data => {
-            const answer = data.result;
-            const answerIsNotNull = answer !== null;
-
-            if (answerIsNotNull) {
-                resultOutput.innerText = `${answerPhrase}${answer}`;
-            } else {
-                resultOutput.innerText = errorPhrase;
-            }
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const deltaVelocityInput = document.getElementById("end-velocity-delta-velocity");
-    const startVelocityInput = document.getElementById("end-velocity-start-velocity");
-    const accelerationInput = document.getElementById("end-velocity-acceleration");
-    const elapsedDistanceInput = document.getElementById("end-velocity-elapsed-distance");
-    const elapsedTimeInput = document.getElementById("end-velocity-elapsed-time");
-    const averageVelocityInput = document.getElementById("end-velocity-average-velocity");
-    const calculateButton = document.getElementById("calculate-end-velocity-button");
-    const resultOutput = document.getElementById("end-velocity-result");
-
-    calculateButton.addEventListener("click", function() {
-        fetch(calculateEndpoint, {
-            headers: {"Content-type": "application/json"},
-            method: "POST",
-            body: JSON.stringify({
-                formula_type: "get_end_velocity",
-                data: {
-                    delta_velocity: deltaVelocityInput.value || null,
-                    start_velocity: startVelocityInput.value || null,
-                    acceleration: accelerationInput.value || null,
-                    elapsed_distance: elapsedDistanceInput.value || null,
-                    elapsed_time: elapsedTimeInput.value || null,
-                    average_velocity: averageVelocityInput.value || null,
-                },
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
-            const answerIsNotNull = answer !== null;
-
-            if (answerIsNotNull) {
-                resultOutput.innerText = `${answerPhrase}${answer}`;
-            } else {
-                resultOutput.innerText = errorPhrase;
-            }
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const forceInput = document.getElementById("force-pressure-force");
-    const areaInput = document.getElementById("force-pressure-area");
-    const calculateButton = document.getElementById("calculate-force-pressure-button");
-    const resultOutput = document.getElementById("force-pressure-result");
-
-    calculateButton.addEventListener("click", function() {
-        fetch(calculateEndpoint, {
-            headers: {"Content-type": "application/json"},
-            method: "POST",
-            body: JSON.stringify({
-                formula_type: "get_force_pressure",
-                data: {
-                    force: forceInput.value || null,
-                    area: areaInput.value || null,
-                }
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
-            const answerIsNotNull = answer !== null;
-
-            if (answerIsNotNull) {
-                resultOutput.innerText = `${answerPhrase}${answer}`;
-            } else {
-                resultOutput.innerText = errorPhrase;
-            }
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const slidingFrictionInput = document.getElementById("friction-force-sliding-friction");
-    const supportReactionInput = document.getElementById("friction-force-support-reaction");
-    const massInput = document.getElementById("friction-force-mass");
-    const accelerationInput = document.getElementById("friction-force-acceleration");
-    const angleInput = document.getElementById("friction-force-angle");
-    const calculateButton = document.getElementById("calculate-friction-force-button");
-    const resultOutput = document.getElementById("friction-force-result");
-
-    calculateButton.addEventListener("click", function() {
-        fetch(calculateEndpoint, {
-            headers: {"Content-type": "application/json"},
-            method: "POST",
-            body: JSON.stringify({
-                formula_type: "get_friction_force",
-                data: {
-                    sliding_friction: slidingFrictionInput.value || null,
-                    support_reaction: supportReactionInput.value || null,
-                    mass: massInput.value || null,
-                    acceleration: accelerationInput.value || null,
-                    angle: angleInput.value || null,
-                }
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
-            const answerIsNotNull = answer !== null;
-
-            if (answerIsNotNull) {
-                resultOutput.innerText = `${answerPhrase}${answer}`;
-            } else {
-                resultOutput.innerText = errorPhrase;
-            }
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const densityInput = document.getElementById("hydrostatic-pressure-density");
-    const gravityAccelerationInput = document.getElementById("hydrostatic-pressure-gravity-acceleration");
-    const heightInput = document.getElementById("hydrostatic-pressure-height");
-    const calculateButton = document.getElementById("calculate-hydrostatic-pressure-button");
-    const resultOutput = document.getElementById("hydrostatic-pressure-result");
-
-    calculateButton.addEventListener("click", function() {
-        fetch(calculateEndpoint, {
-            headers: {"Content-type": "application/json"},
-            method: "POST",
-            body: JSON.stringify({
-                formula_type: "get_hydrostatic_pressure",
-                data: {
-                    density: densityInput.value || null,
-                    gravity_acceleration: gravityAccelerationInput.value || null,
-                    height: heightInput.value || null,
-                }
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
-            const answerIsNotNull = answer !== null;
-
-            if (answerIsNotNull) {
-                resultOutput.innerText = `${answerPhrase}${answer}`;
-            } else {
-                resultOutput.innerText = errorPhrase;
-            }
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const massInput = document.getElementById("kinetic-energy-mass");
-    const velocityInput = document.getElementById("kinetic-energy-velocity");
-    const impulseInput = document.getElementById("kinetic-energy-impulse");
-    const calculateButton = document.getElementById("calculate-kinetic-energy-button");
-    const resultOutput = document.getElementById("kinetic-energy-result");
-
-    calculateButton.addEventListener("click", function() {
-        fetch(calculateEndpoint, {
-            headers: {"Content-type": "application/json"},
-            method: "POST",
-            body: JSON.stringify({
-                formula_type: "get_kinetic_energy",
-                data: {
-                    mass: massInput.value || null,
-                    velocity: velocityInput.value || null,
-                    impulse: impulseInput.value || null,
-                }
-            })
-        })
-        .then(responce => responce.json())
-        .then(data => {
-            const answer = data.result;
-            const answerIsNotNull = answer !== null;
-
-            if (answerIsNotNull) {
-                resultOutput.innerText = `${answerPhrase}${answer}`;
-            } else {
-                resultOutput.innerText = errorPhrase;                
-            }
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const densityInput = document.getElementById("mass-density");
-    const volumeInput = document.getElementById("mass-volume");
-    const totalForceInput = document.getElementById("mass-total-force");
-    const accelerationInput = document.getElementById("mass-acceleration");
-    const sensibleHeatInput = document.getElementById("mass-sensible-heat");
-    const specificHeatInput = document.getElementById("mass-special-heat");
-    const deltaTemperatureInput = document.getElementById("mass-delta-temperature");
-    const startTemperatureInput = document.getElementById("mass-start-temperature");
-    const endTemperatureInput = document.getElementById("mass-end-temperature");
-    const kineticEnergyInput = document.getElementById("mass-kinetic-energy");
-    const velocityInput = document.getElementById("mass-velocity");
-    const potentialEnergyInput = document.getElementById("mass-potential-energy");
-    const gravityAccelerationInput = document.getElementById("mass-gravity-acceleration");
-    const heightInput = document.getElementById("mass-height");
-    const fusionHeatInput = document.getElementById("mass-fusion-heat");
-    const specificFusionHeatInput = document.getElementById("mass-specific-fusion-heat");
-    const moleInput = document.getElementById("mass-mole");
-    const molarMassInput = document.getElementById("mass-molar-mass");
-    const calculateButton = document.getElementById("calculate-mass-button");
-    const resultOutput = document.getElementById("mass-result");
-
-    calculateButton.addEventListener("click", function() {
-        fetch(calculateEndpoint, {
-            headers: {"Content-type": "application/json"},
-            method: "POST",
-            body: JSON.stringify({
-                formula_type: "get_mass",
-                data: {
-                    density: densityInput.value || null,
-                    volume: volumeInput.value || null,
-                    total_force: totalForceInput.value || null,
-                    acceleration: accelerationInput.value || null,
-                    sensible_heat: sensibleHeatInput.value || null,
-                    specific_heat: specificHeatInput.value || null,
-                    delta_temperature: deltaTemperatureInput.value || null,
-                    start_temperature: startTemperatureInput.value || null,
-                    end_temperature: endTemperatureInput.value || null,
-                    kinetic_energy: kineticEnergyInput.value || null,
-                    velocity: velocityInput.value || null,
-                    potential_energy: potentialEnergyInput.value || null,
-                    gravity_acceleration: gravityAccelerationInput.value || null,
-                    height: heightInput.value || null,
-                    fusion_heat: fusionHeatInput.value || null,
-                    specific_fusion_heat: specificFusionHeatInput.value || null,
-                    mole: moleInput.value || null,
-                    molar_mass: molarMassInput.value || null,
-                }
-            })
-        })
-        .then(responce => responce.json())
-        .then(data => {
-            const answer = data.result;
-            const answerIsNotNull = answer !== null;
-
-            if (answerIsNotNull) {
-                resultOutput.innerText = `${answerPhrase}${answer}`;
-            } else {
-                resultOutput.innerText = errorPhrase;
-            }
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const totalForceInput = document.getElementById("mechanical-work-total-force");
-    const elapsedDistanceInput = document.getElementById("mechanical-work-elapsed-distance");
-    const angleInput = document.getElementById("mechanical-work-angle");
-    const startKineticEnergy = document.getElementById("mechanical-work-start-kinetic-energy");
-    const endKineticEnergy = document.getElementById("mechanical-work-end-kinetic-energy");
-    const calculateButton = document.getElementById("calculate-mechanical-work-button");
-    const resultOutput = document.getElementById("mechanical-work-result");
-
-    calculateButton.addEventListener("click", function() {
-        fetch(calculateEndpoint, {
-            headers: {"Content-type": "application/json"},
-            method: "POST",
-            body: JSON.stringify({
-                formula_type: "get_mechanical_work",
-                data: {
-                    total_force: totalForceInput.value || null,
-                    elapsed_distance: elapsedDistanceInput.value || null,
-                    angle: angleInput.value || null,
-                    start_kinetic_energy: startKineticEnergy.value || null,
-                    end_kinetic_energy: endKineticEnergy.value || null,
-                }
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
-            const answerIsNotNull = answer !== null;
-
-            if (answerIsNotNull) {
-                resultOutput.innerText = `${answerPhrase}${answer}`;
-            } else {
-                resultOutput.innerText = errorPhrase;
-            }
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const massInput = document.getElementById("potential-energy-mass");
-    const accelerationInput = document.getElementById("potential-energy-acceleration");
-    const heightInput = document.getElementById("potential-energy-height");
-    const hardnessInput = document.getElementById("potential-energy-hardness");
-    const startLengthInput = document.getElementById("potential-energy-start-length");
-    const endLengthInput = document.getElementById("potential-energy-end-length");
-    const deltaLengthInput = document.getElementById("potential-energy-delta-length");
-    const calculateButton = document.getElementById("calculate-potential-energy-button");
-    const resultOutput = document.getElementById("potential-energy-result");
-
-    calculateButton.addEventListener("click", function() {
-        fetch(calculateEndpoint, {
-            headers: {"Content-type": "application/json"},
-            method: "POST",
-            body: JSON.stringify({
-                formula_type: "get_potential_energy",
-                data: {
-                    mass: massInput.value || null,
-                    acceleration: accelerationInput.value || null,
-                    height: heightInput.value || null,
-                    hardness: hardnessInput.value || null,
-                    start_length: startLengthInput.value || null,
-                    end_length: endLengthInput.value || null,
-                    delta_length: deltaLengthInput.value || null,
-                }
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
-            const answerIsNotNull = answer !== null;
-
-            if (answerIsNotNull) {
-                resultOutput.innerText = `${answerPhrase}${answer}`;
-            } else {
-                resultOutput.innerText = errorPhrase;
-            }
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const deltaVelocityInput = document.getElementById("start-velocity-delta-velocity");
-    const endVelocityInput = document.getElementById("start-velocity-end-velocity");
-    const accelerationInput = document.getElementById("start-velocity-acceleration");
-    const elapsedTimeInput = document.getElementById("start-velocity-elapsed-time");
-    const elapsedDistanceInput = document.getElementById("start-velocity-elapsed-distance");
-    const averageVelocityInput = document.getElementById("start-velocity-average-velocity");
-    const calculateButton = document.getElementById("calculate-start-velocity-button");
-    const resultOutput = document.getElementById("start-velocity-result");
-
-    calculateButton.addEventListener("click", function() {
-        fetch(calculateEndpoint, {
-            headers: {"Content-type": "application/json"},
-            method: "POST",
-            body: JSON.stringify({
-                formula_type: "get_start_velocity",
-                data: {
-                    delta_velocity: deltaVelocityInput.value || null,
-                    end_velocity: endVelocityInput.value || null,
-                    acceleration: accelerationInput.value || null,
-                    elapsed_time: elapsedTimeInput.value || null,
-                    elapsed_distance: elapsedDistanceInput.value || null,
-                    average_velocity: averageVelocityInput.value || null,
-                },
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const answer = data.result;
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
             const answerIsNotNull = answer !== null;
 
             if (answerIsNotNull) {
@@ -569,8 +413,8 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {"Content-type": "application/json"},
             method: "POST",
             body: JSON.stringify({
-                formula_type: "get_volume",
-                data: {
+                calculable_physical_quantity: volumeQuantity,
+                physical_quantity_data: {
                     mass: massInput.value || null,
                     density: densityInput.value || null,
                     total_force: totalForceInput.value || null,
@@ -593,8 +437,174 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         })
         .then(responce => responce.json())
-        .then(data => {
-            const answer = data.result;
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
+            const answerIsNotNull = answer !== null;
+
+            if (answerIsNotNull) {
+                resultOutput.innerText = `${answerPhrase}${answer}`;
+            } else {
+                resultOutput.innerText = errorPhrase;
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const densityInput = document.getElementById("mass-density");
+    const volumeInput = document.getElementById("mass-volume");
+    const totalForceInput = document.getElementById("mass-total-force");
+    const accelerationInput = document.getElementById("mass-acceleration");
+    const sensibleHeatInput = document.getElementById("mass-sensible-heat");
+    const specificHeatInput = document.getElementById("mass-special-heat");
+    const deltaTemperatureInput = document.getElementById("mass-delta-temperature");
+    const startTemperatureInput = document.getElementById("mass-start-temperature");
+    const endTemperatureInput = document.getElementById("mass-end-temperature");
+    const kineticEnergyInput = document.getElementById("mass-kinetic-energy");
+    const velocityInput = document.getElementById("mass-velocity");
+    const potentialEnergyInput = document.getElementById("mass-potential-energy");
+    const gravityAccelerationInput = document.getElementById("mass-gravity-acceleration");
+    const heightInput = document.getElementById("mass-height");
+    const fusionHeatInput = document.getElementById("mass-fusion-heat");
+    const specificFusionHeatInput = document.getElementById("mass-specific-fusion-heat");
+    const moleInput = document.getElementById("mass-mole");
+    const molarMassInput = document.getElementById("mass-molar-mass");
+    const calculateButton = document.getElementById("calculate-mass-button");
+    const resultOutput = document.getElementById("mass-result");
+
+    calculateButton.addEventListener("click", function() {
+        fetch(calculateEndpoint, {
+            headers: {"Content-type": "application/json"},
+            method: "POST",
+            body: JSON.stringify({
+                calculable_physical_quantity: massQuantity,
+                physical_quantity_data: {
+                    density: densityInput.value || null,
+                    volume: volumeInput.value || null,
+                    total_force: totalForceInput.value || null,
+                    acceleration: accelerationInput.value || null,
+                    sensible_heat: sensibleHeatInput.value || null,
+                    specific_heat: specificHeatInput.value || null,
+                    delta_temperature: deltaTemperatureInput.value || null,
+                    start_temperature: startTemperatureInput.value || null,
+                    end_temperature: endTemperatureInput.value || null,
+                    kinetic_energy: kineticEnergyInput.value || null,
+                    velocity: velocityInput.value || null,
+                    potential_energy: potentialEnergyInput.value || null,
+                    gravity_acceleration: gravityAccelerationInput.value || null,
+                    height: heightInput.value || null,
+                    fusion_heat: fusionHeatInput.value || null,
+                    specific_fusion_heat: specificFusionHeatInput.value || null,
+                    mole: moleInput.value || null,
+                    molar_mass: molarMassInput.value || null,
+                }
+            })
+        })
+        .then(responce => responce.json())
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
+            const answerIsNotNull = answer !== null;
+
+            if (answerIsNotNull) {
+                resultOutput.innerText = `${answerPhrase}${answer}`;
+            } else {
+                resultOutput.innerText = errorPhrase;
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const forceInput = document.getElementById("force-pressure-force");
+    const areaInput = document.getElementById("force-pressure-area");
+    const calculateButton = document.getElementById("calculate-force-pressure-button");
+    const resultOutput = document.getElementById("force-pressure-result");
+
+    calculateButton.addEventListener("click", function() {
+        fetch(calculateEndpoint, {
+            headers: {"Content-type": "application/json"},
+            method: "POST",
+            body: JSON.stringify({
+                calculable_physical_quantity: forcePressureQuantity,
+                physical_quantity_data: {
+                    force: forceInput.value || null,
+                    area: areaInput.value || null,
+                }
+            })
+        })
+        .then(response => response.json())
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
+            const answerIsNotNull = answer !== null;
+
+            if (answerIsNotNull) {
+                resultOutput.innerText = `${answerPhrase}${answer}`;
+            } else {
+                resultOutput.innerText = errorPhrase;
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const densityInput = document.getElementById("hydrostatic-pressure-density");
+    const gravityAccelerationInput = document.getElementById("hydrostatic-pressure-gravity-acceleration");
+    const heightInput = document.getElementById("hydrostatic-pressure-height");
+    const calculateButton = document.getElementById("calculate-hydrostatic-pressure-button");
+    const resultOutput = document.getElementById("hydrostatic-pressure-result");
+
+    calculateButton.addEventListener("click", function() {
+        fetch(calculateEndpoint, {
+            headers: {"Content-type": "application/json"},
+            method: "POST",
+            body: JSON.stringify({
+                calculable_physical_quantity: hydrostaticPressureQuantity,
+                physical_quantity_data: {
+                    density: densityInput.value || null,
+                    gravity_acceleration: gravityAccelerationInput.value || null,
+                    height: heightInput.value || null,
+                }
+            })
+        })
+        .then(response => response.json())
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
+            const answerIsNotNull = answer !== null;
+
+            if (answerIsNotNull) {
+                resultOutput.innerText = `${answerPhrase}${answer}`;
+            } else {
+                resultOutput.innerText = errorPhrase;
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const densityInput = document.getElementById("archimedes-force-density");
+    const gravityAccelerationInput = document.getElementById("archimedes-force-gravity-acceleration");
+    const volumeInput = document.getElementById("archimedes-force-volume");
+    const massInput = document.getElementById("archimedes-force-mass");
+    const calculateButton = document.getElementById("calculate-archimedes-force-button");
+    const resultOutput = document.getElementById("archimedes-force-result");
+
+    calculateButton.addEventListener("click", function() {
+        fetch(calculateEndpoint, {
+            headers: {"Content-type": "application/json"},
+            method: "POST",
+            body: JSON.stringify({
+                calculable_physical_quantity: archimedesForceQuantity,
+                physical_quantity_data: {
+                    density: densityInput.value || null,
+                    gravity_acceleration: gravityAccelerationInput.value || null,
+                    volume: volumeInput.value || null,
+                    mass: massInput.value || null,
+                }
+            })
+        })
+        .then(response => response.json())
+        .then(physical_quantity_data => {
+            const answer = physical_quantity_data.result;
             const answerIsNotNull = answer !== null;
 
             if (answerIsNotNull) {
