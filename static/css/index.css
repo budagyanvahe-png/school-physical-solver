@@ -1,3 +1,5 @@
+/* main-div */
+
 .main-div {
     border-color: gray;
     border-width: 8px;
@@ -21,6 +23,8 @@
     font-size: 32px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+/* Buttons */ 
 
 #electricity-button {
     background-color: blue;

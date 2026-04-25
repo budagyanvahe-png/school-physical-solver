@@ -23,22 +23,11 @@
 .calculate-button {
     background-color: greenyellow;
     border: 8px outset black;
-    border-radius: 16px;
+    border-radius: 8px;
 }
 
 .result-unit {
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.redirect-to-index-div {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 32px;
-}
-
-.redirect-to-index-button {
-    font-family: Arial, Helvetica, sans-serif;
-    border: 8px outset black;
-    border-radius: 16px;
 }
 
 .physics-section-div {
