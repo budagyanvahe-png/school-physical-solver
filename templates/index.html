@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Формулы по физике</title>
+        <title>Физический калькулятор</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     </head>
@@ -10,16 +10,24 @@
             <p><strong>Физический калькулятор</strong></p>
         </header>
         <div class="greeting-div">
-            <p>Привет, ученик! У тебя мало времени или нет под рукой калькулятора, но тебе СРОЧНО нужно получить ту самую пятерку?</p>
-            <p>Добро пожаловать в Физический калькулятор! Здесь ты найдешь различные разделы по физике и сможешь быстро рассчитать величину.</p>
+            <p>Привет, ученик! У тебя мало времени, нет калькулятора или вообще не помнишь формул и вдобавок у тебя куча задач, которые надо было сдать еще вчера?</p>
+            <p>Добро пожаловать в Физический калькулятор! Здесь есть формулы из школьных учебников. Сайт сам все рассчитает в СИ, а тебе нужно всего лишь подставить числа в окошки и ты получишь ответ.</p>
+            <p>А если не знаешь, как решать задачи - ссылки на образовательные ресурсы внизу!</p>
         </div>
         <div class="science-div">
             <p>Разделы физики: Электричество, Механика, Термодинамика</p>
             <div class="science-section-choosing-div">
-                <button class="science-section-button" id="electricity-button">Электричество</button>
-                <button class="science-section-button" id="mechanics-button">Механика</button>
-                <button class="science-section-button" id="thermodynamics-button">Термодинамика</button>
+                <button class="physics-electricity-button science-section-button" id="physics-electricity-button">Электричество</button>
+                <button class="physics-mechanics-button science-section-button" id="physics-mechanics-button">Механика</button>
+                <button class="physics-thermodynamics-button science-section-button" id="physics-thermodynamics-button">Термодинамика</button>
             </div> 
+        </div>
+        <div class="science-link-div">
+            <p>Ссылки на дополнительную информацию и образовательные ресурсы</p>
+            <ul class="science-link-unordered-list">
+                <li><a class="science-link" href="https://www.yaklass.ru" target="_blank">ЯКласс</a></li>
+                <li><a class="science-link" href="https://sch156.gosuslugi.ru/netcat_files/32/50/9_Fizika_I.M._Peryshkin.pdf" target="_blank">Учебник физики Перышкина за 9 класс</a></li>
+            </ul>
         </div>
         <script src="static/js/RedirectButtons/PhysicsRedirectButtons.js"></script>
     </body>

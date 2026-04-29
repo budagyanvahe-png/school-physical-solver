@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    const electricityButton = document.getElementById("electricity-button");
+    const electricityButton = document.getElementById("physics-electricity-button");
 
     electricityButton.addEventListener("click", function() {
 
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    const mechanicsButton = document.getElementById("mechanics-button");
+    const mechanicsButton = document.getElementById("physics-mechanics-button");
 
     mechanicsButton.addEventListener("click", function() {
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    const thermodynamicsButton = document.getElementById("thermodynamics-button");
+    const thermodynamicsButton = document.getElementById("physics-thermodynamics-button");
 
     thermodynamicsButton.addEventListener("click", function() {
 

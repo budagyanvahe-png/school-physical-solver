@@ -14,6 +14,8 @@
     text-shadow: 2px 2px 4px black;
 }
 
+/* greeting-div */
+
 .greeting-div {
     border: 8px solid black;
     background-color: white;
@@ -26,6 +28,42 @@
     padding: 8px;
 }
 
+/* Physics buttons */
+
+.physics-electricity-button {
+    background-color: blue;
+    color: lightblue;
+}
+
+.physics-mechanics-button {
+    background-color: gray;
+    color: lightgray;
+}
+
+.physics-thermodynamics-button {
+    background-color: darkgoldenrod;
+    color: yellow;
+}
+
+/* Science classes */
+
+.science-section-header {
+    border-width: 8px; 
+    border-style: solid;
+    border-radius: 16px;
+    font-size: 32px;
+    font-family: Arial;
+    text-align: center;
+}
+
+.science-section-choosing-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 8px;
+    gap: 16px;
+}
+
 .science-section-button {
     border: 8px solid black;
     border-radius: 16px;
@@ -33,19 +71,39 @@
     box-shadow: 2px 2px 4px gray;
 }
 
-/* Physics buttons */
-
-#electricity-button {
-    background-color: blue;
-    color: lightblue;
+.science-section-button:hover {
+    scale: 1.2;
 }
 
-#mechanics-button {
-    background-color: gray;
-    color: lightgray;
+.science-div {
+    border: 8px solid black;
+    background-color: white;
+    border-radius: 16px;
+    font-family: Arial;
+    font-size: 32px;
+    color: black;
+    text-align: center;
+    text-shadow: 2px 2px 4px gray;
+    padding: 8px;
 }
 
-#thermodynamics-button {
-    background-color: darkgoldenrod;
-    color: yellow;
+.science-link-div {
+    border: 8px solid black;
+    background-color: white;
+    border-radius: 16px;
+    font-family: Arial;
+    font-size: 32px;
+    color: black;
+    text-align: center;
+    text-shadow: 2px 2px 4px gray;
+    padding: 8px;
+}
+
+.science-link-unordered-list {
+    list-style-type: none;
+}
+
+.science-link {
+    font-family: Arial;
+    font-size: 32px;
 }

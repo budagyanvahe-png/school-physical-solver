@@ -9,29 +9,6 @@
     text-align: center;
 }
 
-.science-div {
-    border: 8px solid black;
-    background-color: white;
-    border-radius: 16px;
-}
-
-.science-div p {
-    font-family: Arial;
-    font-size: 32px;
-    color: black;
-    text-align: center;
-    text-shadow: 2px 2px 4px gray;
-    padding: 8px;
-}
-
-.science-section-choosing-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 8px;
-    gap: 16px;
-}
-
 /* Formulas classes */
 
 .formula-div {
@@ -48,11 +25,12 @@
     font-size: 32px;
 }
 
-.formula-input {
+.formula-input-unordered-list {
+    list-style-type: none;
     text-align: left;
     text-shadow: 2px 2px 4px gray;
     font-family: Arial;
-    font-size: 16x;
+    font-size: 16px;
 }
 
 /* Button classes */
@@ -61,6 +39,10 @@
     background-color: greenyellow;
     border: 8px outset black;
     border-radius: 8px;
+}
+
+.calculate-button:hover {
+    scale: 1.2;
 }
 
 /* Result classes */
